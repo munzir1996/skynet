@@ -52,9 +52,6 @@ export async function saveUserToDB(user: {
             user,
         );
         
-        console.log('saveUserToDB');
-        console.log(newUser);
-        
         return newUser;
 
     } catch (error) {
@@ -71,7 +68,7 @@ export async function signInAccount(user: {
 }){
 
     try {
-        const session = await account.createEmailPasswordSession(user.email, user.password);
+        const session = await account.createEmailSession(user.email, user.password);
 
         return session;
 
@@ -85,9 +82,6 @@ export async function signInAccount(user: {
 export async function getCurrentUser() {
     try {
         const currentAccount = await account.get();
-        
-        console.log('getCurrentUser');
-        console.log(currentAccount.$id);
         
         if(!currentAccount) throw Error;
 
