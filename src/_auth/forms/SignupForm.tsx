@@ -49,9 +49,6 @@ const SignupForm = () => {
     // ✅ This will be type-safe and validated.
     const newUser = await createUserAccount(values);
 
-    console.log("newUser");
-    console.log(newUser);
-
     if (!newUser) {
       return toast({
         title: "Signup up failed. Please try8 again.",
